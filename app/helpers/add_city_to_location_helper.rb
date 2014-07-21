@@ -1,0 +1,2 @@
+module AddCityToLocationHelper
+end
