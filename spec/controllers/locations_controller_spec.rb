@@ -24,5 +24,5 @@ RSpec.describe LocationsController, :type => :controller do
 			get :show, id: 200
 			expect(response).to have_http_status(404)
 		end
-	en
+	end
 end
