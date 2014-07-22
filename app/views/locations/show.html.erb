@@ -1,0 +1,9 @@
+<h1>Location in the URL</h1>
+<ul>
+	<li>
+		<% if @location.name.present? %>
+			<%= @location.name %> -
+		<% end %>
+		<%= @location.city %>
+	</li>
+</ul>
