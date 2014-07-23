@@ -1,5 +1,10 @@
 class Location < ActiveRecord::Base
 	has_many :visits
+
+	validates :name, presence: true
+	validates :city, presence: true
+	validates :name, :length => { :maximum => 30 }
+	
 	def self.iron_find(id)
 		where(id: id).first
 	end
@@ -10,5 +15,11 @@ class Location < ActiveRecord::Base
 
 	def self.in_spain
 		where(country: 'Spain')
+	end
+
+	def self.total_visits_in_month_of_year(month,year)
+		from = DateTime.new(year,month,1,0,0,0,'0')
+		to = from + 1.month
+		where('created_at > ?', from).where('created_at < ?', to)
 	end
 end
