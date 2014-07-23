@@ -7,3 +7,4 @@
 		<%= @visit.from_date %> --- <%= @visit.to_date %>
 	</li>
 </ul>
+<%= link_to "Visits in " + @location.city, location_visits_path(@location) %>

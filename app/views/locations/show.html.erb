@@ -4,6 +4,8 @@
 		<% if @location.name.present? %>
 			<%= @location.name %> -
 		<% end %>
-		<%= @location.city %>
+		<%= @location.city %> => <%= link_to "Show visits", location_visits_path(@location) %>
+		-- <%= link_to "New visit", new_location_visit_path(@location) %>
 	</li>
 </ul>
+<%= link_to "Locations", locations_path %>

@@ -3,9 +3,10 @@
 	<% @visits.each do |visit| %>
 		<li>
 			<% if visit.user_name.present? %>
-				<%= visit.user_name %> -
+				<%= link_to visit.user_name, location_visit_path(@location, visit) %> -
 			<% end %>
 			<%= visit.from_date %> --- <%= visit.to_date %>
 		</li>
 	<% end %>
 </ul>
+<%= link_to "Location " + @location.city, location_path(@location) %>

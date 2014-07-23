@@ -5,7 +5,7 @@
 		<% if location.name.present? %>
 			<%= location.name %> -
 		<% end %>
-		<%= location.city %></li>
+		<%= link_to location.city, location_path(location) %></li>
 		<% if location.description.present? %>
 			- <%= location.description %>
 		<% end %>
