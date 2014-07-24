@@ -1,13 +1,19 @@
 <h1>Locations</h1>
+<%= show_flash %>
+
 <ul>
 	<% @locations.each do |location| %>
 		<li>
 		<% if location.name.present? %>
 			<%= location.name %> -
 		<% end %>
-		<%= link_to location.city, location_path(location) %></li>
+		<%= link_to location.city, location_path(location) %>
 		<% if location.description.present? %>
 			- <%= location.description %>
 		<% end %>
+		=> <%= link_to "edit", edit_location_path(location) %> - 
+		<%= link_to "delete", location_path(location), method: 'delete', confirm: "Are you sure?" %>
+		</li>
 	<% end %>
 </ul>
+<%= link_to "New location", new_location_path %></li>
