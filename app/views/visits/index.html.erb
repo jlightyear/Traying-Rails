@@ -1,14 +1,12 @@
 <h1>Visits in <%= @location.city %></h1>
-<%= flash_show %>
+<%= show_flash %>
 <ul>
 	<% @visits.each do |visit| %>
 		<li>
-			<% if visit.user_name.present? %>
-				<%= link_to visit.user_name, location_visit_path(@location, visit) %> -
-			<% end %>
+			<%= link_to visit.user.name, location_visit_path(@location, visit) %> -
 			<%= visit.from_date %> --- <%= visit.to_date %> =>
-			<%= link_to "edit", edit_location_visit_path(@location, visit) %> - 
-			<%= link_to "delete", location_visit_path(@location, visit), method: 'delete', confirm: "Are you sure?" %>
+			<%= edit_link(edit_location_visit_path(@location, visit)) %> - 
+			<%= delete_link(location_visit_path(@location, visit)) %>
 		</li>
 	<% end %>
 </ul>

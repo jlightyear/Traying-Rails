@@ -11,8 +11,8 @@
 		<% if location.description.present? %>
 			- <%= location.description %>
 		<% end %>
-		=> <%= link_to "edit", edit_location_path(location) %> - 
-		<%= link_to "delete", location_path(location), method: 'delete', confirm: "Are you sure?" %>
+		=> <%= edit_link(edit_location_path(location)) %> - 
+		<%= delete_link(location_path(location)) %>
 		</li>
 	<% end %>
 </ul>

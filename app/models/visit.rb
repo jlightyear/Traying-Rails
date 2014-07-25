@@ -1,9 +1,9 @@
 class Visit < ActiveRecord::Base
 	belongs_to :location
+	belongs_to :user
 
 	validates :from_date, presence: true
 	validates :to_date, presence: true
-	validates :user_name, format: { with: /\A[A-Za-z0-9]*\z/ }
 	validates_associated :location
 	validate :from_date_is_after_now
 	validate :from_date_is_before_to_date

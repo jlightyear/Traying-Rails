@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :visits
   end
 
+  resources :users do
+    resources :visits
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   #get 'home' => 'home#welcome'

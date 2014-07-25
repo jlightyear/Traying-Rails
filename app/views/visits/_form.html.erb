@@ -1,0 +1,20 @@
+<% if @visit.errors.any? %>
+ <ul>
+ <%= @visit.errors.size %>
+ <% @visit.errors.full_messages.each do |error_message| %>
+ <li><%= error_message %></li>
+ <% end %>
+ </ul>
+<% end %>
+
+<%= form_for [@location, @visit] do |f| %>
+	<%= f.label :user_name %>
+	<%= f.select(:user_id, User.all.collect {|user| [ user.name, user.id ] }) %>
+	<br />
+	<%= f.datetime_select( :from_date, default: Time.now + 1.days ) %>
+	<br />
+	<%= f.datetime_select( :to_date, default: Time.now + 2.days ) %>
+	<br />
+	<%= f.submit "Save" %>
+	<%= f.button "Cancel", :name => "Cancel" %>
+<% end %>

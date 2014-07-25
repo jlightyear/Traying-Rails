@@ -1,0 +1,10 @@
+<h1>User <%= @user.name %></h1>
+<ul>
+	<li>
+		<% if @user.name.present? %>
+			<%= @user.name %> -
+		<% end %>
+		<%= @user.pwd %> - <%= @user.email %>
+	</li>
+</ul>
+<%= link_to "Users", users_path %>

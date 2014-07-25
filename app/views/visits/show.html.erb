@@ -1,8 +1,8 @@
 <h1>Visit in <%= @location.city %></h1>
 <ul>
 	<li>
-		<% if @visit.user_name.present? %>
-			<%= @visit.user_name %> -
+		<% if @visit.user.name.present? %>
+			<%= @visit.user.name %> -
 		<% end %>
 		<%= @visit.from_date %> --- <%= @visit.to_date %>
 	</li>

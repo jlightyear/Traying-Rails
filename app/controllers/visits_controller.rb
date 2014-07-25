@@ -1,8 +1,11 @@
 class VisitsController < ApplicationController
 	def index
-		time = DateTime.new
-		@location = Location.find_by(id: params[:location_id])
-		@visits = @location.visits
+		#if params[:user_id]
+			#@user = User.find(params[:user_id])
+		#elsif params[:location_id]
+			@location = Location.find_by(id: params[:location_id])
+			@visits = @location.visits
+		#end
 	end
 
 	def new
@@ -17,7 +20,6 @@ class VisitsController < ApplicationController
 			redirect_to location_path(@location)
 		elsif @visit.save
 			flash[:notice] = "Congratulations, visit was created!"
-			#redirect_to action: 'index', controller: 'visits', location_id: @location.id
 			redirect_to location_visits_path @location.id
 		else
 			render 'new'
@@ -57,8 +59,7 @@ class VisitsController < ApplicationController
 	end
 
 	private
-
-	def visit_params
-		params.require(:visit).permit(:user_name, :from_date, :to_date)
-	end
+		def visit_params
+			params.require(:visit).permit(:from_date, :to_date, :user_id)
+		end
 end
