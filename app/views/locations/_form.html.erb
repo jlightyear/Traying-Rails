@@ -20,6 +20,15 @@
 	<%= f.label :description %>
 	<%= f.text_field :description %>
 	<br />
+	     <%= f.fields_for :notes do |note_form| %>
+         <%= note_form.hidden_field :id %>
+         <% if params[:id] %>
+         	<%= note_form.check_box :_destroy %>
+         <% end %>
+         <%= note_form.label :nota %>
+         <%= note_form.text_field :name %>
+    <% end %>
+    <br />
 	<%= f.submit "Save" %>
 	<%= f.button "Cancel", :name => "Cancel" %>
 <% end %>

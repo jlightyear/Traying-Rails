@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+
 	def index
 		@locations = Location.order(created_at: :desc)
 							.limit(10)
@@ -6,10 +7,11 @@ class LocationsController < ApplicationController
 
 	def new
 		@location = Location.new
+		@location.notes.build
 	end
 
 	def create
-			@location = Location.new location_params
+		@location = Location.new location_params
 		if params[:Cancel]
 			redirect_to locations_path
 		elsif @location.save
@@ -22,6 +24,7 @@ class LocationsController < ApplicationController
 
 	def edit
 		@location = Location.find(params[:id])
+		@location.notes.build
 	end
 
 	def update
@@ -49,6 +52,6 @@ class LocationsController < ApplicationController
 	end
 
 	def location_params
-		params.require(:location).permit(:name, :city, :country, :description)
+		params.require(:location).permit(:name, :city, :country, :description, notes_attributes: [:id, :name, :_destroy])
 	end
 end

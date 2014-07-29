@@ -1,5 +1,7 @@
 class Location < ActiveRecord::Base
 	has_many :visits
+	has_many :notes
+        accepts_nested_attributes_for :notes, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:name].blank? }
 
 	validates :name, presence: true
 	validates :city, presence: true
