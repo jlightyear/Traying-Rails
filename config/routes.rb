@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'home#welcome'
 
   resources :locations do
-    resources :visits
+    resources :visits, :notes
   end
 
   resources :users do
