@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+
 	def index
 		@locations = Location.order(created_at: :desc)
 							.limit(10)
@@ -51,6 +52,6 @@ class LocationsController < ApplicationController
 	end
 
 	def location_params
-		params.require(:location).permit(:name, :city, :country, :description, notes_attributes: [:id, :name])
+		params.require(:location).permit(:name, :city, :country, :description, notes_attributes: [:id, :name, :_destroy])
 	end
 end
