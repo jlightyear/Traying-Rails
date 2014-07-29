@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :visits, dependent: delete
+	has_many :visits, dependent: :destroy
 
 	validates :name, presence: true
 	validates :pwd, presence: true

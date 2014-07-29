@@ -21,11 +21,11 @@ RSpec.describe VisitsController, :type => :controller do
 
 		it "get all the visits for the location" do
 			l1 = Location.create name: 'Home', city: 'Barcelona', country: 'Spain'
-			Visit.create location_id: l1.id, user_name: 'Paco', from_date: Time.now, to_date: Time.now + 1.hour
-			Visit.create location_id: l1.id, user_name: 'Pepe', from_date: Time.now, to_date: Time.now + 5.hour
-			Visit.create location_id: l1.id, user_name: 'Sandra', from_date: Time.now, to_date: Time.now + 2.day
-			Visit.create location_id: l1.id, user_name: 'Martin', from_date: Time.now, to_date: Time.now + 1.hour
-			Visit.create location_id: l1.id, user_name: 'Jose', from_date: Time.now, to_date: Time.now + 1.hour
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 1.hour
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 5.hour
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 2.day
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 1.hour
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 1.hour
 			get :index, location_id: l1.id
 			expect(assigns(:location).visits).to eq(l1.visits)
 		end
@@ -33,11 +33,11 @@ RSpec.describe VisitsController, :type => :controller do
 
 	describe "GET #show" do
 		l1 = Location.create name: 'Home', city: 'Barcelona', country: 'Spain'
-		v1 = Visit.create location_id: l1.id, user_name: 'Paco', from_date: Time.now, to_date: Time.now + 1.hour
-			Visit.create location_id: l1.id, user_name: 'Pepe', from_date: Time.now, to_date: Time.now + 5.hour
-			Visit.create location_id: l1.id, user_name: 'Sandra', from_date: Time.now, to_date: Time.now + 2.day
-			Visit.create location_id: l1.id, user_name: 'Martin', from_date: Time.now, to_date: Time.now + 1.hour
-			Visit.create location_id: l1.id, user_name: 'Jose', from_date: Time.now, to_date: Time.now + 1.hour
+		v1 = Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 1.hour
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 5.hour
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 2.day
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 1.hour
+			Visit.create location_id: l1.id, from_date: Time.now, to_date: Time.now + 1.hour
 
 		it "All the request is correct status code 200" do
 			get :show, location_id: l1.id, id: v1.id 

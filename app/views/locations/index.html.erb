@@ -16,4 +16,14 @@
 		</li>
 	<% end %>
 </ul>
+<%= form_for Search.new do |f| %>
+	<%= f.label "Find..." %>
+	<%= f.text_field :keyword %>
+	<br />
+	<%= f.submit "Save" %>
+	<%= f.button "Cancel", :name => "Cancel" %>
+<% end %>
+<br />
+<br />
+
 <%= link_to "New location", new_location_path %></li>

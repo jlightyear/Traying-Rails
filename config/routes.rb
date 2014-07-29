@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :visits
   end
 
-  # Example of regular route:
+  resource :search, only: :create
+
+  # Example of regar route:
   #   get 'products/:id' => 'catalog#view'
   #get 'home' => 'home#welcome'
   #get 'contact' => 'home#contact'
