@@ -8,11 +8,11 @@
 		-- <%= link_to "New visit", new_location_visit_path(@location) %>
 	</li>
 </ul>
-<ul>
+<ol>
 	<% @location.notes.each do |note| %>
 		<li>
 			<%= note.name %>
 		</li>
 	<% end %>
-</ul>
+</ol>
 <%= link_to "Locations", locations_path %>

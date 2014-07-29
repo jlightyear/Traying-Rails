@@ -22,7 +22,7 @@
 	<br />
 	     <%= f.fields_for :notes do |note_form| %>
          <%= note_form.hidden_field :id %>
-         <% if params[:id] %>
+         <% if note_form.object.persisted? %>
          	<%= note_form.check_box :_destroy %>
          <% end %>
          <%= note_form.label :nota %>

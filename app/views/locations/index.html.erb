@@ -3,7 +3,8 @@
 
 <ul>
 	<% @locations.each do |location| %>
-		<li>
+		<li style="color:<%= cycle("red","blue") %>">
+		<span style="color:<%= current_cycle %>">
 		<% if location.name.present? %>
 			<%= location.name %> -
 		<% end %>
@@ -13,6 +14,7 @@
 		<% end %>
 		=> <%= edit_link(edit_location_path(location)) %> - 
 		<%= delete_link(location_path(location)) %>
+		</span>
 		</li>
 	<% end %>
 </ul>
