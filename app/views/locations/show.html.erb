@@ -1,12 +1,9 @@
-<h1>Location in the URL</h1>
-<ul>
-	<li>
-		<% if @location.name.present? %>
-			<%= @location.name %> -
-		<% end %>
-		<%= @location.city %> => <%= link_to "Show visits", location_visits_path(@location) %>
-		-- <%= link_to "New visit", new_location_visit_path(@location) %>
-	</li>
+<h1>Location <%= @location.name %> - <%= @location.city %></h1>
+	<b><% if @location.name.present? %>
+		<%= @location.name %> -
+	<% end %>
+	<%= @location.city %></b> => <%= link_to "Show visits", location_visits_path(@location) %>
+	-- <%= link_to "New visit", new_location_visit_path(@location) %>
 </ul>
 <ol>
 	<% @location.notes.each do |note| %>
@@ -16,3 +13,6 @@
 	<% end %>
 </ol>
 <%= link_to "Locations", locations_path %>
+<% content_for(:title) do %>
+	Location <%= @location.name %>
+<% end %>
