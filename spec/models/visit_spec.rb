@@ -2,24 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Visit, :type => :model do
   before(:each) do
-
-  location_params = {
-  	name: 'Home',
-  	city: 'Barcelona',
-  	country: 'Spain'
-  }
-
-  @l1 = Location.create location_params
-
-  visit_params = {
-  	location_id: @l1.id,
-  	user_name: 'Paco',
-  	from_date: Time.now + 1.day,
-  	to_date: Time.now + 2.month
-  }
-
-  @v1 = Visit.new visit_params
-
+    @v1 = FactoryGirl.create(:visit)
   end
 
   it "Has an attribute" do

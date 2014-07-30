@@ -1,7 +1,7 @@
 class VisitsController < ApplicationController
 	def index
-		#if params[:user_id]
-			#@user = User.find(params[:user_id])
+		#if params[:user_id
+		#@user = User.find(params[:user_id])
 		#elsif params[:location_id]
 			@location = Location.find_by(id: params[:location_id])
 			@visits = @location.visits

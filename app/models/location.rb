@@ -4,6 +4,7 @@ class Location < ActiveRecord::Base
         accepts_nested_attributes_for :notes, :allow_destroy => true, :reject_if => proc { |attrs| attrs[:name].blank? }
 
 	validates :name, presence: true
+	validates :name, uniqueness: true
 	validates :city, presence: true
 	validates :name, :length => { :maximum => 30 }
 	
