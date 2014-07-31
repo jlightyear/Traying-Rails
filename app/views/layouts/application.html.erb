@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<nav>
+	<section class="login"><%= render template: "users/sessions/new" %></section>
+</nav>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>

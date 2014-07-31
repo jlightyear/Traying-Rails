@@ -8,5 +8,4 @@ RSpec.describe User, :type => :model do
   it "User is valid" do
   	expect(@user1).to be_valid
   end
-
 end

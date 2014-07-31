@@ -1,7 +1,9 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe LocationsController, :type => :controller do
-	#Location.all.each { |location| p location.name }
+Location.destroy_all
+
 	describe "GET #index" do
 		
 		it "All the request is correct status code 200" do
@@ -24,20 +26,20 @@ RSpec.describe LocationsController, :type => :controller do
 	end
 
 	describe "GET #show, id" do
-		item = Location.new
-		item.name = "Home"
-		item.city = "Barcelona"
-		item.country = "Spain"
-		item.save
-
+		before do
+			@item = FactoryGirl.create	:location
+		end
+		
+		
 		it "All the request is correct status code 200" do
-			get :show, id: item.id
+			get :show, id: @item.id
+
 			expect(response).to be_success
 			expect(response).to have_http_status(200)
 		end
 
 		it "renders the show template" do
-			get :show, id: item.id
+			get :show, id: @item.id
 			expect(response).to render_template("show")
 		end
 
