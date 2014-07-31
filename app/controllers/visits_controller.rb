@@ -1,11 +1,7 @@
 class VisitsController < ApplicationController
 	def index
-		#if params[:user_id
-		#@user = User.find(params[:user_id])
-		#elsif params[:location_id]
-			@location = Location.find_by(id: params[:location_id])
-			@visits = @location.visits
-		#end
+		@location = Location.find_by(id: params[:location_id])
+		@visits = @location.visits
 	end
 
 	def new
@@ -14,8 +10,8 @@ class VisitsController < ApplicationController
 	end
 
 	def create
-			@location = Location.find_by(id: params[:location_id])
-			@visit = @location.visits.new visit_params
+		@location = Location.find_by(id: params[:location_id])
+		@visit = @location.visits.new visit_params
 		if params[:Cancel]
 			redirect_to location_path(@location)
 		elsif @visit.save

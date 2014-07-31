@@ -1,9 +1,8 @@
 <h1>Visits in <%= @location.city %></h1>
-<%= show_flash %>
 <ul>
 	<% @visits.each do |visit| %>
 		<li>
-			<%= link_to visit.user.name, location_visit_path(@location, visit) %> -
+			<%= link_to visit.user.email, location_visit_path(@location, visit) %> -
 			<%= visit.from_date %> --- <%= visit.to_date %> =>
 			<%= edit_link(edit_location_visit_path(@location, visit)) %> - 
 			<%= delete_link(location_visit_path(@location, visit)) %>

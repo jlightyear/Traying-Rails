@@ -6,11 +6,11 @@ module ApplicationHelper
 	def alert
 		flash[:alert] if flash[:alert]
 	end
-	
+
 	def edit_link(path)
 		link_to "edit", path
 	end
-	
+
 	def delete_link(path)
 		link_to "delete", path, method: 'delete', confirm: "Are you sure?"
 	end
@@ -25,5 +25,9 @@ module ApplicationHelper
 
 	def devise_mapping
 		@devise_mapping ||= Devise.mappings[:user]
+	end
+
+	def show_login_or_logout
+		render template: user_signed_in? ? "/users/sessions/logout" : "users/sessions/new"
 	end
 end
