@@ -11,7 +11,7 @@
 		<% if location.description.present? %>
 			- <%= location.description %>
 		<% end %>
-		=> <%= edit_link(edit_location_path(location)) %> - 
+		=> <%= edit_link(edit_location_path(location)) %> -
 		<%= delete_link(location_path(location)) %>
 		</span>
 		</li>
@@ -19,10 +19,7 @@
 </ul>
 <%= form_for Search.new do |f| %>
 	<%= f.label "Find..." %>
-	<%= f.text_field :keyword %>
-	<br />
-	<%= f.submit "Save" %>
-	<%= f.button "Cancel", :name => "Cancel" %>
+	<%= f.text_field :keyword %><%= f.submit "Search" %>
 <% end %>
 <br />
 <br />

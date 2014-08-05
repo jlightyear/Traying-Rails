@@ -19,10 +19,6 @@ RSpec.describe Location, :type => :model do
 		expect(Location.in_spain).to eq(Location.where(country: 'Spain'))
 	end
 
-  it "filter by date" do
-	 	expect(Location.total_visits_in_month_of_year(7,2014).last).to eq(@item1)
-  end
-
   it "validate presence of name" do
     expect(@item.errors[:name]).to be_empty
   end
